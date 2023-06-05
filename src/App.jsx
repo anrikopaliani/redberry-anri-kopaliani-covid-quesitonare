@@ -1,9 +1,9 @@
-import StartPage from './pages/StartPage/StartPage';
+import Credentials from './pages/Credentials/Credentials';
 
 function App() {
   return (
     <>
-      <StartPage />
+      <Credentials />
     </>
   );
 }
