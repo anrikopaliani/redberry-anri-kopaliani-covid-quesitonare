@@ -2,7 +2,14 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        343: '343px',
+      },
+      colors: {
+        black: '#232323',
+      },
+    },
   },
   plugins: [],
 };

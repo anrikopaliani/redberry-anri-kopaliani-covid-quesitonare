@@ -1,7 +1,9 @@
+import StartPage from './pages/StartPage/StartPage';
+
 function App() {
   return (
     <>
-      <h1>hello</h1>
+      <StartPage />
     </>
   );
 }
