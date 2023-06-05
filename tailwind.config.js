@@ -5,6 +5,7 @@ export default {
     extend: {
       spacing: {
         343: '343px',
+        1.8: '1.8px',
       },
       colors: {
         black: '#232323',

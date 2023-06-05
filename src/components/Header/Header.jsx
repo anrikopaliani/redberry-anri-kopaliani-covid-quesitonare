@@ -4,7 +4,7 @@ import redberryLogo from '../../assets/redberryLogo.svg';
 
 const Header = ({ pageNumber }) => {
   return (
-    <header className='w-full flex  flex-col'>
+    <header className='w-full flex  flex-col mt-24'>
       <div className='flex justify-between items-center'>
         <img src={redberryLogo} alt='' />
         <p className='font-bold text-4xl '>{pageNumber} / 4</p>
