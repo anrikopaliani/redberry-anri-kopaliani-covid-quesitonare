@@ -1,3 +1,1 @@
-import VectorIcon from './VectorIcon';
-
-export { VectorIcon };
+export { default as VectorIcon } from './VectorIcon';
