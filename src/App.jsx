@@ -1,5 +1,4 @@
-import Credentials from './pages/Credentials/Credentials';
-
+import { Credentials } from '@/pages';
 function App() {
   return (
     <>
