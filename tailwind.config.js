@@ -14,6 +14,7 @@ export default {
       colors: {
         black: '#232323',
         error: '#F15524',
+        hint: '#626262',
       },
       borderWidth: {
         DEFAULT: '1px',
