@@ -7,7 +7,7 @@ const Credentials = () => {
       <Header pageNumber={1} />
       <div className='flex justify-between'>
         <CredentialsForm />
-        <img src={CredentialsPicture} alt='' />
+        <img src={CredentialsPicture} alt='credentials form picture' />
       </div>
     </Wrapper>
   );
