@@ -1,5 +1,5 @@
-import VectorIcon from 'src/icons/VectorIcon';
 import classes from './StartPage.module.css';
+import { VectorIcon } from 'src/components/icons';
 
 const StartPage = () => {
   return (
