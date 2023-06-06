@@ -1,13 +1,11 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '@/components';
-
+import { useYupValidationResolver } from '@/hooks/validation';
 import { UserCredentialsFormValidation } from '@/schemas';
 
 const CredentialsForm = () => {
-  const form = useForm({
-    resolver: yupResolver(UserCredentialsFormValidation),
-  });
+  const resolver = useYupValidationResolver(UserCredentialsFormValidation);
+  const form = useForm({ resolver });
   const {
     handleSubmit,
     formState: { errors },
