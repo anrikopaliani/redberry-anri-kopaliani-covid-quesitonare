@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '@/components';
 
-import { UserCredentialsFormValidation } from '@/schemas/forms';
+import { UserCredentialsFormValidation } from '@/schemas';
 
 const CredentialsForm = () => {
   const {
