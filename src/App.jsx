@@ -1,8 +1,14 @@
-import { Credentials } from '@/pages';
+import { Routes, Route } from 'react-router-dom';
+
+import { Credentials, StartPage } from '@/pages';
+
 function App() {
   return (
     <>
-      <Credentials />
+      <Routes>
+        <Route path='/' element={<StartPage />} />
+        <Route path='/credentials' element={<Credentials />} />
+      </Routes>
     </>
   );
 }
