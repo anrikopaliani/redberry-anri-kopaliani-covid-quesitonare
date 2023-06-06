@@ -1,3 +1,1 @@
-import { VectorIcon } from './icons';
-
-export { VectorIcon };
+export * from './icons';
