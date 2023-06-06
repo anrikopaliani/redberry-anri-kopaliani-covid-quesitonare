@@ -5,7 +5,7 @@ import { UserCredentialsFormValidation } from '@/schemas';
 
 const CredentialsForm = () => {
   const resolver = useYupValidationResolver(UserCredentialsFormValidation);
-  const form = useForm({ resolver });
+  const form = useForm({ mode: 'all', resolver });
   const {
     handleSubmit,
     formState: { errors },
