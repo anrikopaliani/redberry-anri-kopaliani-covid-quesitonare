@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import { useFormContext } from 'react-hook-form';
 
-const Input = ({ label, placeholder, name, register, errors }) => {
+const Input = ({ label, placeholder, name, errors }) => {
+  const { register } = useFormContext();
   return (
     <div className='flex flex-col w-513 mt-47 relative'>
       <label className='font-bold text-2xl' htmlFor={name}>
@@ -25,7 +27,6 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
   errors: PropTypes.string,
 };
 
