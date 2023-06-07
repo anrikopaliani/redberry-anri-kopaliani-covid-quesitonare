@@ -1,26 +1,10 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import { Input } from '@/components';
-import { useYupValidationResolver } from '@/hooks';
-import { UserCredentialsFormValidation } from '@/schemas';
+import { useCredentialsForm } from '@/hooks';
 import { NextArrow } from '@/components';
 
 const CredentialsForm = () => {
-  const resolver = useYupValidationResolver(UserCredentialsFormValidation);
-  const form = useForm({
-    mode: 'all',
-    resolver,
-    defaultValues: {
-      first_name: '',
-      last_name: '',
-      email: '',
-    },
-  });
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = form;
-
-  console.log(errors);
+  const [form, handleSubmit, errors] = useCredentialsForm();
 
   const onSubmit = (data) => console.log(data);
 
