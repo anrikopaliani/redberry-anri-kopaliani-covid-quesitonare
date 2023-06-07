@@ -2,6 +2,7 @@ import classes from './StartPage.module.css';
 import { Link } from 'react-router-dom';
 import { Logo } from '@/components/icons';
 
+
 const StartPage = () => {
   return (
     <div
