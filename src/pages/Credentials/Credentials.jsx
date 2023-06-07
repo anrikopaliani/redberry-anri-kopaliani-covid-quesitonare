@@ -1,5 +1,5 @@
 import { Header, Wrapper, CredentialsForm } from '@/components';
-import CredentialsPicture from 'public/scan2.png';
+import { CredentialsPicture } from 'public';
 
 const Credentials = () => {
   return (

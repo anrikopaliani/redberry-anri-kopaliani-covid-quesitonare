@@ -1,4 +1,2 @@
-import Credentials from './Credentials/Credentials';
-import StartPage from './StartPage/StartPage';
-
-export { Credentials, StartPage };
+export { default as Credentials } from './Credentials/Credentials';
+export { default as StartPage } from './StartPage/StartPage';

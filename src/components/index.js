@@ -1,7 +1,6 @@
-import Header from './Header';
-import Input from './Input';
-import Wrapper from './Wrapper';
-import CredentialsForm from './Forms/Credentials';
 export * from './icons';
 
-export { Header, Input, Wrapper, CredentialsForm };
+export { default as Header } from './Header';
+export { default as Input } from './Input';
+export { default as Wrapper } from './Wrapper';
+export { default as CredentialsForm } from './Forms/Credentials';

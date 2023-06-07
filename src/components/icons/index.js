@@ -1,5 +1,3 @@
-import RedberryLogo from './RedberryLogo';
-import Logo from './Logo';
-import NextArrow from './NextArrow';
-
-export { RedberryLogo, Logo, NextArrow };
+export { default as RedberryLogo } from './RedberryLogo';
+export { default as Logo } from './Logo';
+export { default as NextArrow } from './NextArrow';

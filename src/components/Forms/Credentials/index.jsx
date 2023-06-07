@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { Input } from '@/components';
-import { useYupValidationResolver } from '@/hooks/validation';
+import { useYupValidationResolver } from '@/hooks';
 import { UserCredentialsFormValidation } from '@/schemas';
 import { NextArrow } from '@/components';
 
