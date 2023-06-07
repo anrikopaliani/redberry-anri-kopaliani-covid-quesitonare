@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RedberryLogo } from '../icons';
+import { RedberryLogo } from '@/components';
 
 const Header = ({ pageNumber }) => {
   return (

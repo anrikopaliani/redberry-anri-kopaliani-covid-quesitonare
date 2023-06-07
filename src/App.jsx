@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-
 import { Credentials, StartPage } from '@/pages';
 
 function App() {
