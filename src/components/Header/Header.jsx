@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import redberryLogo from '../../assets/redberryLogo.svg';
+import { RedberryLogo } from '@/components';
 
 const Header = ({ pageNumber }) => {
   return (
-    <header className='w-full flex  flex-col'>
+    <header className='w-full flex  flex-col mt-24'>
       <div className='flex justify-between items-center'>
-        <img src={redberryLogo} alt='' />
+        <RedberryLogo />
         <p className='font-bold text-4xl '>{pageNumber} / 4</p>
       </div>
       <div
