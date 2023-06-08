@@ -1,1 +1,1 @@
-export { default as CredentialsForm } from './Credentials/CredentialsForm';
+export { default as CredentialsForm } from './Credentials';
