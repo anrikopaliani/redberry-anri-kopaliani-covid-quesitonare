@@ -1,6 +1,6 @@
-import { Header, Wrapper, CredentialsForm } from '@/components';
+import { Header, Wrapper } from '@/components';
 import { CredentialsPicture } from 'public';
-
+import { CredentialsForm } from '@/components/Forms';
 const Credentials = () => {
   return (
     <Wrapper>
