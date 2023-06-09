@@ -1,26 +1,19 @@
 import { FormProvider } from 'react-hook-form';
-import { RadioGroup } from '@/components';
-import { Input } from '@/components';
 import { useCovidForm } from '@/hooks';
-import { NextArrow, BackArrow } from '@/components';
+import { NextArrow, BackArrow, Input, RadioGroup } from '@/components';
 import { Link } from 'react-router-dom';
 
-const RADIO_OPTIONS = [
-  { label: 'კი', value: 'yes' },
-  { label: 'არა', value: 'no' },
-  { label: 'ახლა მაქვს', value: 'now' },
-];
-
-const RADIO_OPTIONS_2 = [
-  { label: 'კი', value: 'true' },
-  { label: 'არა', value: 'false' },
-];
-
 const CovidForm = () => {
-  const { form, handleSubmit, errors, userHadCovid, userHadAntibodyTest } =
-    useCovidForm();
-
-  const onSubmit = (data) => console.log(data);
+  const {
+    form,
+    handleSubmit,
+    errors,
+    userHadCovid,
+    userHadAntibodyTest,
+    RADIO_OPTIONS,
+    RADIO_OPTIONS_2,
+    onSubmit,
+  } = useCovidForm();
 
   return (
     <FormProvider {...form}>

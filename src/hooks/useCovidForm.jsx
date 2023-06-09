@@ -4,6 +4,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { CovidFormValidation } from '@/schemas';
 import { useEffect } from 'react';
 
+const RADIO_OPTIONS = [
+  { label: 'კი', value: 'yes' },
+  { label: 'არა', value: 'no' },
+  { label: 'ახლა მაქვს', value: 'now' },
+];
+
+const RADIO_OPTIONS_2 = [
+  { label: 'კი', value: 'true' },
+  { label: 'არა', value: 'false' },
+];
+
 const useCovidForm = () => {
   const resolver = yupResolver(CovidFormValidation);
 
@@ -35,6 +46,8 @@ const useCovidForm = () => {
     }
   }, [userHadCovid, resetField]);
 
+  const onSubmit = (data) => console.log(data);
+
   return {
     form,
     handleSubmit,
@@ -42,6 +55,9 @@ const useCovidForm = () => {
     resetField,
     userHadCovid,
     userHadAntibodyTest,
+    RADIO_OPTIONS,
+    RADIO_OPTIONS_2,
+    onSubmit,
   };
 };
 
