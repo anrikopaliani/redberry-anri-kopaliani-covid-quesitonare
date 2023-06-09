@@ -25,7 +25,7 @@ const Input = memo(function Input({ label, placeholder, name, errors }) {
 });
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   errors: PropTypes.string,
