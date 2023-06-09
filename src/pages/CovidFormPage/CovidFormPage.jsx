@@ -8,7 +8,7 @@ const CovidFormPage = () => {
       <Header pageNumber={2} />
       <div className='flex justify-between'>
         <CovidForm />
-        <img src={SickPerson} alt='' />
+        <img src={SickPerson} alt='sick person' />
       </div>
     </Wrapper>
   );
