@@ -15,6 +15,7 @@ export default {
         black: '#232323',
         error: '#F15524',
         hint: '#626262',
+        link: '#1289AE',
       },
       borderWidth: {
         0.8: '0.05rem',

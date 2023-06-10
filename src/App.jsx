@@ -8,7 +8,7 @@ function App() {
         <Route path='/' element={<StartPage />} />
         <Route path='/credentials' element={<Credentials />} />
         <Route path='/covid' element={<CovidPage />} />
-        <Route path='/vaccinted' element={<VaccinatedPage />} />
+        <Route path='/vaccinated' element={<VaccinatedPage />} />
       </Routes>
     </>
   );
