@@ -1,1 +1,1 @@
-export { default as CredentialsPicture } from './assets/credentials-picture.png';
+export * from './assets';
