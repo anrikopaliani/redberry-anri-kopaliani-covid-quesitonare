@@ -46,3 +46,8 @@ export const CovidFormValidation = yup.object({
         .required('სავალდებულოა'),
   }),
 });
+
+export const VaccinatedFormValidation = yup.object({
+  had_vaccine: yup.string().required('სავალდებულოა'),
+  vaccination_stage: yup.string().required('სავალდებულოა'),
+});
