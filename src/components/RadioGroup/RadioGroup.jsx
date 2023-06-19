@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 const Select = ({ label, name, options, error }) => {
   const { register } = useFormContext();
   return (
-    <div className='mt-11'>
+    <div className='mt-11 relative'>
       <p className='text-2xl font-bold'>{label}</p>
       {options.map((opt) => {
         return (
@@ -22,7 +22,7 @@ const Select = ({ label, name, options, error }) => {
           </div>
         );
       })}
-      <p className='text-red-500'>{error}</p>
+      <p className='text-red-500 absolute'>{error}</p>
     </div>
   );
 };
