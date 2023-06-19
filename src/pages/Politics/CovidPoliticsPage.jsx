@@ -1,5 +1,4 @@
-import { Wrapper, Header } from '@/components';
-import { CovidPoliticsForm } from '@/components/Forms';
+import { Wrapper, Header, CovidPoliticsForm } from '@/components';
 import { Bike } from 'public';
 
 const CovidPoliticsPage = () => {
