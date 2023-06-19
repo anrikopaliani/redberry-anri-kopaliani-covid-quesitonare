@@ -20,6 +20,7 @@ export default {
         error: '#F15524',
         hint: '#626262',
         submitButtonColor: '#208298',
+        link: '#1289AE',
       },
       borderWidth: {
         0.8: '0.05rem',
