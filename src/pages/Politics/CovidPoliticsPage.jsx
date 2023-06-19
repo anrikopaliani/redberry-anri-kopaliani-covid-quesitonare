@@ -3,7 +3,7 @@ import { Bike } from 'public';
 
 const CovidPoliticsPage = () => {
   return (
-    <Wrapper>
+    <Wrapper hidden={false}>
       <Header pageNumber={4} />
       <div className='flex justify-between'>
         <div className='w-606 mt-11'>
