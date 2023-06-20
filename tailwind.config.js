@@ -10,11 +10,16 @@ export default {
         50: '3.125rem',
         0.8: '0.05rem',
         47: '2.938rem',
+        622: '38.875rem',
+        606: '37.875rem',
+        703: '43.938rem',
       },
       colors: {
+        theme: '#eaeaea',
         black: '#232323',
         error: '#F15524',
         hint: '#626262',
+        submitButtonColor: '#208298',
         link: '#1289AE',
       },
       borderWidth: {

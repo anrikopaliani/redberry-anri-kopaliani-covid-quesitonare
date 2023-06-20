@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
 
-const FormPageWrapper = (props) => {
-  return <div className='h-screen w-screen px-48'>{props.children}</div>;
+const FormPageWrapper = ({ children, hidden = true }) => {
+  return (
+    <div
+      className={`h-screen w-screen px-48 ${
+        hidden ? 'overflow-hidden' : 'overflow-x-hidden'
+      }`}
+    >
+      {children}
+    </div>
+  );
 };
 
 FormPageWrapper.propTypes = {
@@ -9,5 +17,6 @@ FormPageWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  hidden: PropTypes.bool,
 };
 export default FormPageWrapper;

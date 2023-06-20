@@ -47,6 +47,12 @@ export const CovidFormValidation = yup.object({
   }),
 });
 
+
+export const CovidPoliticsFormValidation = yup.object({
+  non_formal_meetings: yup.string().required('სავალდებულოა'),
+  number_of_days_from_office: yup.string().required('სავალდებულოა'),
+});
+  
 export const VaccinatedFormValidation = yup.object({
   had_vaccine: yup.string().required('სავალდებულოა'),
   vaccination_stage: yup.string().required('სავალდებულოა'),

@@ -16,7 +16,7 @@
 body {
   font-family: bpgArial;
   background-color: #eaeaea;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 input[type='radio'] {
@@ -47,4 +47,9 @@ input[type='radio']::before {
 
 input[type='radio']:checked::before {
   transform: scale(1);
+}
+
+textarea {
+  resize: none;
+  white-space: pre-wrap;
 }
