@@ -5,7 +5,7 @@ const Credentials = () => {
   return (
     <Wrapper>
       <Header pageNumber={1} />
-      <div className='flex justify-between'>
+      <div className='flex justify-between '>
         <div>
           <CredentialsForm />
           <div className='mt-28 w-60 h-0.8 bg-black'></div>
