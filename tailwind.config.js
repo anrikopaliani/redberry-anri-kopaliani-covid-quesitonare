@@ -22,9 +22,13 @@ export default {
         hint: '#626262',
         submitButtonColor: '#208298',
         link: '#1289AE',
+        credentialsDivColor: '#D6D16E',
       },
       borderWidth: {
         0.8: '0.05rem',
+      },
+      lineHeight: {
+        76: '4.8rem',
       },
     },
   },

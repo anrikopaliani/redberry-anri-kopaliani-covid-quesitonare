@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { CovidFormValidation } from '@/schemas';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კი', value: 'yes' },
@@ -17,6 +18,7 @@ const RADIO_OPTIONS_2 = [
 
 const useCovidForm = () => {
   const resolver = yupResolver(CovidFormValidation);
+  const navigate = useNavigate();
 
   const form = useForm({
     resolver,
@@ -46,7 +48,10 @@ const useCovidForm = () => {
     }
   }, [userHadCovid, resetField]);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate('/vaccinated');
+  };
 
   return {
     form,

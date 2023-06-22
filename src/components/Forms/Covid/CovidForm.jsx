@@ -17,7 +17,7 @@ const CovidForm = () => {
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ width: '596px' }} onSubmit={handleSubmit(onSubmit)}>
         <RadioGroup
           label='გაქვს გადატანილი Covid-19?*'
           name='had_covid'
@@ -57,7 +57,7 @@ const CovidForm = () => {
             </div>
           </div>
         )}
-        <div className='w-32 flex justify-between absolute bottom-28 left-0 right-0 mx-auto'>
+        <div className='w-32 flex justify-between absolute bottom-28 left-0 right-0 mx-auto z-10'>
           <Link to='/credentials'>
             <BackArrow />
           </Link>
