@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   Credentials,
   StartPage,
@@ -8,18 +8,11 @@ import {
   Thanks,
 } from '@/pages';
 import { AnimatePresence } from 'framer-motion';
-import { useEffect, useContext } from 'react';
-import { FormContext } from '@/store';
+
+import { useNavigateThanksReset } from '@/hooks';
 
 function App() {
-  const { setNavigateThanksPage } = useContext(FormContext);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === '/politics') {
-      setNavigateThanksPage(false);
-    }
-  }, [setNavigateThanksPage, location.pathname]);
+  const { location } = useNavigateThanksReset();
 
   return (
     <AnimatePresence>
