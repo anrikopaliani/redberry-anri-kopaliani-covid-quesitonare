@@ -2,15 +2,9 @@ import { FormProvider } from 'react-hook-form';
 import { Input } from '@/components';
 import { useCredentialsForm } from '@/hooks';
 import { NextArrow } from '@/components';
-import { useNavigate } from 'react-router-dom';
 
 const CredentialsForm = () => {
-  const [form, handleSubmit, errors] = useCredentialsForm();
-  const navigate = useNavigate();
-  const onSubmit = (data) => {
-    console.log(data);
-    navigate('/covid');
-  };
+  const [form, handleSubmit, errors, onSubmit] = useCredentialsForm();
 
   return (
     <FormProvider {...form}>
