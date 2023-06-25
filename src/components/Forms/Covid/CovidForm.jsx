@@ -8,8 +8,8 @@ const CovidForm = () => {
     form,
     handleSubmit,
     errors,
-    userHadCovid,
-    userHadAntibodyTest,
+    had_covid,
+    had_antibody_test,
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     onSubmit,
@@ -24,7 +24,7 @@ const CovidForm = () => {
           options={RADIO_OPTIONS}
           error={errors.had_covid?.message}
         />
-        {userHadCovid === 'yes' && (
+        {had_covid === 'yes' && (
           <RadioGroup
             label='ანტისხეულების ტესტი გაქვს გაკეთებული?*'
             name='had_antibody_test'
@@ -32,7 +32,7 @@ const CovidForm = () => {
             error={errors.had_antibody_test?.message}
           />
         )}
-        {userHadAntibodyTest !== 'now' && JSON.parse(userHadAntibodyTest) && (
+        {had_antibody_test !== 'now' && JSON.parse(had_antibody_test) && (
           <div className='mt-12'>
             <p className='text-2xl font-bold'>
               თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
@@ -46,7 +46,7 @@ const CovidForm = () => {
             </div>
           </div>
         )}
-        {JSON.parse(userHadAntibodyTest) === false && (
+        {JSON.parse(had_antibody_test) === false && (
           <div className='mt-12'>
             <p className='text-2xl font-bold'>
               მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*

@@ -1,5 +1,10 @@
-import { useForm } from 'react-hook-form';
-import { useYupValidationResolver } from '@/hooks';
+import { useForm, useWatch } from 'react-hook-form';
+import {
+  useYupValidationResolver,
+  useStoredValues,
+  usePersistData,
+} from '@/hooks';
+
 import { CovidPoliticsFormValidation } from '@/schemas';
 
 const RADIO_OPTIONS = [
@@ -19,20 +24,59 @@ const RADIO_OPTIONS_2 = [
 
 const useCovidPoliticsForm = () => {
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
+
+  const getStoredValues = useStoredValues('politicsForm', {
+    non_formal_meetings: '',
+    number_of_days_from_office: '',
+    what_about_meetings_in_live: '',
+    tell_us_your_opinion_about_us: '',
+  });
+
   const form = useForm({
     resolver,
-    defaultValues: {
-      non_formal_meetings: '',
-      number_of_days_from_office: '',
-    },
+    defaultValues: getStoredValues,
   });
 
   const {
     handleSubmit,
     formState: { errors },
+    control,
   } = form;
 
   const onSubmit = (data) => console.log(data);
+
+  const non_formal_meetings = useWatch({
+    control,
+    name: 'non_formal_meetings',
+  });
+  const number_of_days_from_office = useWatch({
+    control,
+    name: 'number_of_days_from_office',
+  });
+  const what_about_meetings_in_live = useWatch({
+    control,
+    name: 'what_about_meetings_in_live',
+  });
+  const tell_us_your_opinion_about_us = useWatch({
+    control,
+    name: 'tell_us_your_opinion_about_us',
+  });
+
+  usePersistData(
+    'politicsForm',
+    {
+      non_formal_meetings,
+      number_of_days_from_office,
+      what_about_meetings_in_live,
+      tell_us_your_opinion_about_us,
+    },
+    [
+      non_formal_meetings,
+      number_of_days_from_office,
+      what_about_meetings_in_live,
+      tell_us_your_opinion_about_us,
+    ]
+  );
 
   return {
     form,
