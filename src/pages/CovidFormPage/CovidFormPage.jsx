@@ -1,6 +1,7 @@
 import { Wrapper, Header } from '@/components';
 import { CovidForm } from '@/components/Forms';
 import { SickPerson } from 'public';
+import { motion } from 'framer-motion';
 
 const CovidFormPage = () => {
   return (
@@ -8,7 +9,20 @@ const CovidFormPage = () => {
       <Header pageNumber={2} />
       <div className='flex justify-between'>
         <CovidForm />
-        <img src={SickPerson} alt='sick person' />
+        <div className='relative'>
+          <motion.div
+            initial={{ opacity: 0, top: 265, left: 100 }}
+            animate={{
+              opacity: 0.7,
+              width: 229,
+              height: 229,
+              background: '#DD3939',
+            }}
+            exit={{ left: 150, top: 130, opacity: 0 }}
+            className='absolute rounded-full'
+          ></motion.div>
+          <img src={SickPerson} alt='sick person' />
+        </div>
       </div>
     </Wrapper>
   );

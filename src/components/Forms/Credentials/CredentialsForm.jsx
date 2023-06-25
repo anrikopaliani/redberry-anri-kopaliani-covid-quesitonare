@@ -4,9 +4,7 @@ import { useCredentialsForm } from '@/hooks';
 import { NextArrow } from '@/components';
 
 const CredentialsForm = () => {
-  const [form, handleSubmit, errors] = useCredentialsForm();
-
-  const onSubmit = (data) => console.log(data);
+  const [form, handleSubmit, errors, onSubmit] = useCredentialsForm();
 
   return (
     <FormProvider {...form}>
@@ -29,7 +27,7 @@ const CredentialsForm = () => {
           placeholder='fbi@redberry.ge'
           errors={errors.email?.message}
         />
-        <button type='submit' className='absolute bottom-28 left-1/2'>
+        <button type='submit' className='absolute bottom-28 left-1/2 z-10'>
           <NextArrow />
         </button>
       </form>

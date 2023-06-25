@@ -2,6 +2,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useYupValidationResolver } from '@/hooks';
 import { VaccinatedFormValidation } from '@/schemas';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კი', value: 'true' },
@@ -37,6 +38,8 @@ const RADIO_OPTIONS_3 = [
 
 const useVaccinatedForm = () => {
   const resolver = useYupValidationResolver(VaccinatedFormValidation);
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver,
     defaultValues: {
@@ -64,7 +67,9 @@ const useVaccinatedForm = () => {
     }
   }, [userHadVaccine, resetField]);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = () => {
+    navigate('/politics');
+  };
 
   return {
     form,

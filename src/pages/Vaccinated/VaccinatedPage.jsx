@@ -1,6 +1,7 @@
 import { Wrapper, Header } from '@/components';
 import { VaccinatedForm } from '@/components/Forms';
-import { DoctorPicture } from 'public';
+import { DoctorPicture, Star } from 'public';
+import { motion } from 'framer-motion';
 
 const VaccinatedPage = () => {
   return (
@@ -8,7 +9,21 @@ const VaccinatedPage = () => {
       <Header pageNumber={3} />
       <div className='flex justify-between'>
         <VaccinatedForm />
-        <img src={DoctorPicture} alt='sick person' />
+        <div className='mt-11 relative'>
+          <motion.img
+            src={Star}
+            alt='star'
+            initial={{
+              position: 'absolute',
+              opacity: 0,
+              left: 30,
+              top: -20,
+            }}
+            animate={{ opacity: 0.7, transition: { duration: 0.7 } }}
+            exit={{ top: 90, left: 100, opacity: 0 }}
+          />
+          <img src={DoctorPicture} alt='sick person' />
+        </div>
       </div>
     </Wrapper>
   );

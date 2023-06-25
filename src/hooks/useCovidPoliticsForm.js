@@ -1,6 +1,9 @@
+import { useContext } from 'react';
+import { FormContext } from '@/store';
 import { useForm } from 'react-hook-form';
 import { useYupValidationResolver } from '@/hooks';
 import { CovidPoliticsFormValidation } from '@/schemas';
+import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კვირაში ორჯერ', value: 'twice_a_week' },
@@ -18,7 +21,10 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
+  const { setNavigateThanksPage } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver,
     defaultValues: {
@@ -32,7 +38,10 @@ const useCovidPoliticsForm = () => {
     formState: { errors },
   } = form;
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = () => {
+    setNavigateThanksPage(true);
+    navigate('/thanks');
+  };
 
   return {
     form,

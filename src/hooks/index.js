@@ -3,4 +3,4 @@ export { default as useCredentialsForm } from './useCredentialsForm';
 export { default as useCovidForm } from './useCovidForm';
 export { default as useCovidPoliticsForm } from './useCovidPoliticsForm';
 export { default as useVaccinatedForm } from './useVaccinatedForm';
-
+export { default as useNavigateThanksReset } from './useNavigateThanksReset';
