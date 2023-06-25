@@ -2,6 +2,7 @@ import { useForm, useWatch } from 'react-hook-form';
 import useYupValidationResolver from './useYupValidationResolver';
 import { UserCredentialsFormValidation } from '@/schemas';
 import { useStoredValues, usePersistData } from '@/hooks';
+import { useNavigate } from 'react-router-dom';
 
 const useCredentialsForm = () => {
   const resolver = useYupValidationResolver(UserCredentialsFormValidation);
@@ -35,6 +36,12 @@ const useCredentialsForm = () => {
   ]);
 
   return [form, handleSubmit, errors];
+  const navigate = useNavigate();
+  const onSubmit = () => {
+    navigate('/covid');
+  };
+
+  return [form, handleSubmit, errors, onSubmit];
 };
 
 export default useCredentialsForm;

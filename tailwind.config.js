@@ -5,6 +5,7 @@ export default {
     extend: {
       spacing: {
         343: '21.438rem',
+        400: '25rem',
         1.8: '0.113rem',
         513: '32.063rem',
         50: '3.125rem',
@@ -21,9 +22,13 @@ export default {
         hint: '#626262',
         submitButtonColor: '#208298',
         link: '#1289AE',
+        credentialsDivColor: '#D6D16E',
       },
       borderWidth: {
         0.8: '0.05rem',
+      },
+      lineHeight: {
+        76: '4.8rem',
       },
     },
   },

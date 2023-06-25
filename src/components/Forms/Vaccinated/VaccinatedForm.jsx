@@ -90,7 +90,7 @@ const VaccinatedForm = () => {
           </div>
         )}
 
-        <div className='w-32 flex justify-between absolute bottom-28 left-0 right-0 mx-auto'>
+        <div className='w-32 flex justify-between absolute bottom-28 left-0 right-0 z-10 mx-auto'>
           <Link to='/covid'>
             <BackArrow />
           </Link>

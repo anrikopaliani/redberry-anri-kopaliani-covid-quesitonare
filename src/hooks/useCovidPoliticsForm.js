@@ -4,8 +4,10 @@ import {
   useStoredValues,
   usePersistData,
 } from '@/hooks';
-
+import { useContext } from 'react';
+import { FormContext } from '@/store';
 import { CovidPoliticsFormValidation } from '@/schemas';
+import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კვირაში ორჯერ', value: 'twice_a_week' },
@@ -23,6 +25,7 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
+  const { setNavigateThanksPage } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
   const getStoredValues = useStoredValues('politicsForm', {
@@ -31,6 +34,8 @@ const useCovidPoliticsForm = () => {
     what_about_meetings_in_live: '',
     tell_us_your_opinion_about_us: '',
   });
+  const navigate = useNavigate();
+
 
   const form = useForm({
     resolver,
@@ -43,7 +48,10 @@ const useCovidPoliticsForm = () => {
     control,
   } = form;
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = () => {
+    setNavigateThanksPage(true);
+    navigate('/thanks');
+  };
 
   const non_formal_meetings = useWatch({
     control,

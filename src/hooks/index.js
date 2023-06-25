@@ -5,3 +5,4 @@ export { default as useCovidPoliticsForm } from './useCovidPoliticsForm';
 export { default as useVaccinatedForm } from './useVaccinatedForm';
 export { default as useStoredValues } from './useStoredValues';
 export { default as usePersistData } from './usePersistData';
+export { default as useNavigateThanksReset } from './useNavigateThanksReset';

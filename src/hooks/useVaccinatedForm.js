@@ -7,6 +7,7 @@ import {
 
 import { VaccinatedFormValidation } from '@/schemas';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კი', value: 'true' },
@@ -48,6 +49,8 @@ const useVaccinatedForm = () => {
     vaccination_stage: '',
   });
 
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver,
     defaultValues: getStoredValues,
@@ -72,7 +75,9 @@ const useVaccinatedForm = () => {
     }
   }, [had_vaccine, resetField]);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = () => {
+    navigate('/politics');
+  };
 
   usePersistData('vaccinatedForm', { had_vaccine, vaccination_stage }, [
     had_vaccine,

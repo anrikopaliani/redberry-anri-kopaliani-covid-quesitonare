@@ -14,7 +14,7 @@ const CovidPoliticsForm = () => {
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className='relative'>
         <RadioGroup
           label='რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*'
           name='non_formal_meetings'
@@ -51,7 +51,8 @@ const CovidPoliticsForm = () => {
           <Textarea name='tell_us_your_opinion_about_us' />
         </div>
         <button
-          className='bg-submitButtonColor text-white mt-14 mb-48 float-right font-bold  text-lg w-44 h-14'
+          className='bg-submitButtonColor text-white mt-14  float-right font-bold  text-lg w-44 h-14'
+          type='submit'
           style={{ borderRadius: '42px' }}
         >
           დასრულება
