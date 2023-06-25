@@ -1,6 +1,6 @@
 import { useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+import { useStoredValues, usePersistData } from '@/hooks';
 import { CovidFormValidation } from '@/schemas';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -20,15 +20,17 @@ const useCovidForm = () => {
   const resolver = yupResolver(CovidFormValidation);
   const navigate = useNavigate();
 
+  const getStoredValues = useStoredValues('covidForm', {
+    had_covid: '',
+    had_antibody_test: '',
+    had_covid_date: '',
+    test_date: '',
+    number: '',
+  });
+
   const form = useForm({
     resolver,
-    defaultValues: {
-      had_covid: '',
-      had_antibody_test: '',
-      had_covid_date: '',
-      test_date: '',
-      number: '',
-    },
+    defaultValues: getStoredValues,
   });
 
   const {
@@ -38,27 +40,39 @@ const useCovidForm = () => {
     control,
   } = form;
 
-  const userHadCovid = useWatch({ control, name: 'had_covid' });
-  const userHadAntibodyTest =
+  const had_covid = useWatch({ control, name: 'had_covid' });
+  const had_antibody_test =
     useWatch({ control, name: 'had_antibody_test' }) || null;
 
+  const had_covid_date = useWatch({ control, name: 'had_covid_date' });
+  const test_date = useWatch({ control, name: 'test_date' });
+  const number = useWatch({ control, name: 'number' });
+
   useEffect(() => {
-    if (userHadCovid === 'no' || userHadCovid === 'now') {
+    if (had_covid === 'no' || had_covid === 'now') {
       resetField('had_antibody_test');
+      resetField('test_date');
+      resetField('number');
     }
-  }, [userHadCovid, resetField]);
+  }, [had_covid, resetField]);
 
   const onSubmit = () => {
     navigate('/vaccinated');
   };
+
+  usePersistData(
+    'covidForm',
+    { had_covid, had_antibody_test, had_covid_date, test_date, number },
+    [had_covid, had_antibody_test, had_covid_date, test_date, number]
+  );
 
   return {
     form,
     handleSubmit,
     errors,
     resetField,
-    userHadCovid,
-    userHadAntibodyTest,
+    had_covid,
+    had_antibody_test,
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     onSubmit,

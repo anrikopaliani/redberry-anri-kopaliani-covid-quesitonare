@@ -9,8 +9,8 @@ const VaccinatedForm = () => {
     handleSubmit,
     onSubmit,
     errors,
-    userHadVaccine,
-    userVaccinationStage,
+    had_vaccine,
+    vaccination_stage,
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     RADIO_OPTIONS_3,
@@ -25,7 +25,7 @@ const VaccinatedForm = () => {
           error={errors.had_vaccine?.message}
         />
 
-        {userHadVaccine === 'true' && (
+        {had_vaccine === 'true' && (
           <RadioGroup
             label='აირჩიე რა ეტაპზე ხარ*'
             options={RADIO_OPTIONS_2}
@@ -34,7 +34,7 @@ const VaccinatedForm = () => {
           />
         )}
 
-        {userHadVaccine === 'false' && (
+        {had_vaccine === 'false' && (
           <RadioGroup
             label='რას ელოდები?*'
             name='vaccination_stage'
@@ -43,7 +43,7 @@ const VaccinatedForm = () => {
           />
         )}
 
-        {userVaccinationStage ===
+        {vaccination_stage ===
           'first_dosage_and_not_registered_on_the_second' && (
           <p className='ml-10 mt-10 text-xl'>
             რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი <br />
@@ -58,7 +58,7 @@ const VaccinatedForm = () => {
           </p>
         )}
 
-        {userVaccinationStage === 'not_planned' && (
+        {vaccination_stage === 'not_planned' && (
           <p className='ml-10 mt-10 text-xl'>
             👉
             <a
@@ -72,7 +72,7 @@ const VaccinatedForm = () => {
           </p>
         )}
 
-        {userVaccinationStage === 'had_covid_and_planning_to_vaccinate' && (
+        {vaccination_stage === 'had_covid_and_planning_to_vaccinate' && (
           <div className='ml-10 mt-10 text-xl'>
             <p>
               ახალი პროტოკოლით კოვიდის გადატანიდან 1 <br /> თვის შემდეგ

@@ -1,7 +1,11 @@
+import { useForm, useWatch } from 'react-hook-form';
+import {
+  useYupValidationResolver,
+  useStoredValues,
+  usePersistData,
+} from '@/hooks';
 import { useContext } from 'react';
 import { FormContext } from '@/store';
-import { useForm } from 'react-hook-form';
-import { useYupValidationResolver } from '@/hooks';
 import { CovidPoliticsFormValidation } from '@/schemas';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,25 +27,64 @@ const RADIO_OPTIONS_2 = [
 const useCovidPoliticsForm = () => {
   const { setNavigateThanksPage } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
+
+  const getStoredValues = useStoredValues('politicsForm', {
+    non_formal_meetings: '',
+    number_of_days_from_office: '',
+    what_about_meetings_in_live: '',
+    tell_us_your_opinion_about_us: '',
+  });
   const navigate = useNavigate();
+
 
   const form = useForm({
     resolver,
-    defaultValues: {
-      non_formal_meetings: '',
-      number_of_days_from_office: '',
-    },
+    defaultValues: getStoredValues,
   });
 
   const {
     handleSubmit,
     formState: { errors },
+    control,
   } = form;
 
   const onSubmit = () => {
     setNavigateThanksPage(true);
     navigate('/thanks');
   };
+
+  const non_formal_meetings = useWatch({
+    control,
+    name: 'non_formal_meetings',
+  });
+  const number_of_days_from_office = useWatch({
+    control,
+    name: 'number_of_days_from_office',
+  });
+  const what_about_meetings_in_live = useWatch({
+    control,
+    name: 'what_about_meetings_in_live',
+  });
+  const tell_us_your_opinion_about_us = useWatch({
+    control,
+    name: 'tell_us_your_opinion_about_us',
+  });
+
+  usePersistData(
+    'politicsForm',
+    {
+      non_formal_meetings,
+      number_of_days_from_office,
+      what_about_meetings_in_live,
+      tell_us_your_opinion_about_us,
+    },
+    [
+      non_formal_meetings,
+      number_of_days_from_office,
+      what_about_meetings_in_live,
+      tell_us_your_opinion_about_us,
+    ]
+  );
 
   return {
     form,

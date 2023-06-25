@@ -1,5 +1,10 @@
 import { useForm, useWatch } from 'react-hook-form';
-import { useYupValidationResolver } from '@/hooks';
+import {
+  useYupValidationResolver,
+  useStoredValues,
+  usePersistData,
+} from '@/hooks';
+
 import { VaccinatedFormValidation } from '@/schemas';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -38,14 +43,17 @@ const RADIO_OPTIONS_3 = [
 
 const useVaccinatedForm = () => {
   const resolver = useYupValidationResolver(VaccinatedFormValidation);
+
+  const getStoredValues = useStoredValues('vaccinatedForm', {
+    had_vaccine: '',
+    vaccination_stage: '',
+  });
+
   const navigate = useNavigate();
 
   const form = useForm({
     resolver,
-    defaultValues: {
-      had_vaccine: '',
-      vaccination_stage: '',
-    },
+    defaultValues: getStoredValues,
   });
 
   const {
@@ -55,21 +63,26 @@ const useVaccinatedForm = () => {
     control,
   } = form;
 
-  const userHadVaccine = useWatch({ control, name: 'had_vaccine' });
-  const userVaccinationStage = useWatch({
+  const had_vaccine = useWatch({ control, name: 'had_vaccine' });
+  const vaccination_stage = useWatch({
     control,
     name: 'vaccination_stage',
   });
 
   useEffect(() => {
-    if (userHadVaccine) {
+    if (had_vaccine) {
       resetField('vaccination_stage');
     }
-  }, [userHadVaccine, resetField]);
+  }, [had_vaccine, resetField]);
 
   const onSubmit = () => {
     navigate('/politics');
   };
+
+  usePersistData('vaccinatedForm', { had_vaccine, vaccination_stage }, [
+    had_vaccine,
+    vaccination_stage,
+  ]);
 
   return {
     form,
@@ -79,8 +92,8 @@ const useVaccinatedForm = () => {
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     RADIO_OPTIONS_3,
-    userHadVaccine,
-    userVaccinationStage,
+    had_vaccine,
+    vaccination_stage,
   };
 };
 
