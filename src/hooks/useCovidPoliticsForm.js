@@ -38,9 +38,7 @@ const useCovidPoliticsForm = () => {
     formState: { errors },
   } = form;
 
-  const onSubmit = (data) => {
-    console.log(data);
-
+  const onSubmit = () => {
     setNavigateThanksPage(true);
     navigate('/thanks');
   };

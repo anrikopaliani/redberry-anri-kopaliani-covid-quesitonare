@@ -22,8 +22,7 @@ const useCredentialsForm = () => {
   } = form;
 
   const navigate = useNavigate();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     navigate('/covid');
   };
 

@@ -67,8 +67,7 @@ const useVaccinatedForm = () => {
     }
   }, [userHadVaccine, resetField]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     navigate('/politics');
   };
 
