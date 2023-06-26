@@ -31,6 +31,7 @@ const useCovidForm = () => {
   const form = useForm({
     resolver,
     defaultValues: getStoredValues,
+    mode: 'all',
   });
 
   const {
@@ -54,6 +55,7 @@ const useCovidForm = () => {
   useEffect(() => {
     if (had_covid === 'no' || had_covid === 'now') {
       resetField('had_antibody_test');
+      resetField('covid_sickness_date');
       resetField('test_date');
       resetField('number');
     }

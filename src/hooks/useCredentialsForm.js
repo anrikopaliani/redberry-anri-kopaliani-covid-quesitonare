@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const useCredentialsForm = () => {
   const resolver = useYupValidationResolver(UserCredentialsFormValidation);
-
   const getStoredValues = useStoredValues('credentialsForm', {
     first_name: '',
     last_name: '',
