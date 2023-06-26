@@ -35,7 +35,6 @@ const useCredentialsForm = () => {
     email,
   ]);
 
-  return [form, handleSubmit, errors];
   const navigate = useNavigate();
   const onSubmit = () => {
     navigate('/covid');
