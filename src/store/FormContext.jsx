@@ -5,9 +5,19 @@ const FormContext = createContext({});
 
 export const FormContextProvider = ({ children }) => {
   const [navigateThanksPage, setNavigateThanksPage] = useState(false);
+  const [formData, setFormData] = useState(
+    JSON.parse(localStorage.getItem('formData')) || {}
+  );
 
   return (
-    <FormContext.Provider value={{ navigateThanksPage, setNavigateThanksPage }}>
+    <FormContext.Provider
+      value={{
+        navigateThanksPage,
+        setNavigateThanksPage,
+        setFormData,
+        formData,
+      }}
+    >
       {children}
     </FormContext.Provider>
   );

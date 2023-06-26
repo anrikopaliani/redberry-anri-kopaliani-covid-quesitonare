@@ -1,9 +1,10 @@
+import { useEffect, useContext } from 'react';
+import { FormContext } from '@/store';
+import { useNavigate } from 'react-router-dom';
 import { useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useStoredValues, usePersistData } from '@/hooks';
 import { CovidFormValidation } from '@/schemas';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
   { label: 'კი', value: 'yes' },
@@ -19,6 +20,7 @@ const RADIO_OPTIONS_2 = [
 const useCovidForm = () => {
   const resolver = yupResolver(CovidFormValidation);
   const navigate = useNavigate();
+  const { setFormData } = useContext(FormContext);
 
   const getStoredValues = useStoredValues({
     had_covid: '',
@@ -61,7 +63,8 @@ const useCovidForm = () => {
     }
   }, [had_covid, resetField]);
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/vaccinated');
   };
 

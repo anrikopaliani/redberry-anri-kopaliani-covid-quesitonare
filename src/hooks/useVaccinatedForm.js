@@ -1,12 +1,12 @@
+import { useEffect, useContext } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import {
   useYupValidationResolver,
   useStoredValues,
   usePersistData,
 } from '@/hooks';
-
+import { FormContext } from '@/store';
 import { VaccinatedFormValidation } from '@/schemas';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RADIO_OPTIONS = [
@@ -51,6 +51,7 @@ const useVaccinatedForm = () => {
   });
 
   const navigate = useNavigate();
+  const { setFormData } = useContext(FormContext);
 
   const form = useForm({
     resolver,
@@ -78,7 +79,8 @@ const useVaccinatedForm = () => {
     }
   }, [had_vaccine, resetField]);
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/politics');
   };
 

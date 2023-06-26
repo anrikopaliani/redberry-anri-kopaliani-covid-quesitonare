@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { FormContext } from '@/store';
 import { useForm, useWatch } from 'react-hook-form';
 import useYupValidationResolver from './useYupValidationResolver';
 import { UserCredentialsFormValidation } from '@/schemas';
@@ -11,6 +13,8 @@ const useCredentialsForm = () => {
     last_name: '',
     email: '',
   });
+
+  const { setFormData } = useContext(FormContext);
 
   const form = useForm({
     mode: 'all',
@@ -35,7 +39,8 @@ const useCredentialsForm = () => {
   ]);
 
   const navigate = useNavigate();
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/covid');
   };
 

@@ -25,7 +25,7 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
-  const { setNavigateThanksPage } = useContext(FormContext);
+  const { setNavigateThanksPage, setFormData } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
   const getStoredValues = useStoredValues({
@@ -47,8 +47,9 @@ const useCovidPoliticsForm = () => {
     control,
   } = form;
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
     setNavigateThanksPage(true);
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/thanks');
   };
 
