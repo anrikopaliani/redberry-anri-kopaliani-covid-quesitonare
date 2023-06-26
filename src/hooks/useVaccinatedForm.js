@@ -25,19 +25,19 @@ const RADIO_OPTIONS_2 = [
   },
   {
     label: 'პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე',
-    value: 'first_dosage_and_not_registered_on_the_second',
+    value: 'first_dosage_and_not_registered_yet',
   },
 ];
 
 const RADIO_OPTIONS_3 = [
   {
     label: 'დარეგისტრირებული ვარ და ველოდები რიცხვს',
-    value: 'registered_and_waiting_for_date',
+    value: 'registered_and_waiting',
   },
-  { label: 'არ ვგეგმავ', value: 'not_planned' },
+  { label: 'არ ვგეგმავ', value: 'not_planning' },
   {
     label: 'გადატანილი მაქვს და ვგეგმავ აცრას',
-    value: 'had_covid_and_planning_to_vaccinate',
+    value: 'had_covid_and_planning_to_be_vaccinated',
   },
 ];
 
@@ -47,6 +47,7 @@ const useVaccinatedForm = () => {
   const getStoredValues = useStoredValues('vaccinatedForm', {
     had_vaccine: '',
     vaccination_stage: '',
+    i_am_waiting: '',
   });
 
   const navigate = useNavigate();
@@ -68,10 +69,12 @@ const useVaccinatedForm = () => {
     control,
     name: 'vaccination_stage',
   });
+  const i_am_waiting = useWatch({ control, name: 'i_am_waiting' });
 
   useEffect(() => {
     if (had_vaccine) {
       resetField('vaccination_stage');
+      resetField('i_am_waiting');
     }
   }, [had_vaccine, resetField]);
 
@@ -79,10 +82,11 @@ const useVaccinatedForm = () => {
     navigate('/politics');
   };
 
-  usePersistData('vaccinatedForm', { had_vaccine, vaccination_stage }, [
-    had_vaccine,
-    vaccination_stage,
-  ]);
+  usePersistData(
+    'vaccinatedForm',
+    { had_vaccine, vaccination_stage, i_am_waiting },
+    [had_vaccine, vaccination_stage]
+  );
 
   return {
     form,

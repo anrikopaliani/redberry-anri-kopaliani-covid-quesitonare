@@ -37,8 +37,8 @@ const VaccinatedForm = () => {
         {had_vaccine === 'false' && (
           <RadioGroup
             label='რას ელოდები?*'
-            name='vaccination_stage'
-            error={errors.vaccination_stage?.message}
+            name='i_am_waiting'
+            error={errors.i_am_waiting?.message}
             options={RADIO_OPTIONS_3}
           />
         )}

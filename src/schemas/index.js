@@ -35,7 +35,7 @@ export const CovidFormValidation = yup.object({
     then: (schema) =>
       schema.matches(/^\d+$/, 'მიუთითეთ რიცხვი').required('სავალდებულოა'),
   }),
-  had_covid_date: yup.string().when('had_antibody_test', {
+  covid_sickness_date: yup.string().when('had_antibody_test', {
     is: 'false',
     then: (schema) =>
       schema
@@ -47,13 +47,19 @@ export const CovidFormValidation = yup.object({
   }),
 });
 
-
 export const CovidPoliticsFormValidation = yup.object({
   non_formal_meetings: yup.string().required('სავალდებულოა'),
   number_of_days_from_office: yup.string().required('სავალდებულოა'),
 });
-  
+
 export const VaccinatedFormValidation = yup.object({
   had_vaccine: yup.string().required('სავალდებულოა'),
-  vaccination_stage: yup.string().required('სავალდებულოა'),
+  vaccination_stage: yup.string().when('had_vaccine', {
+    is: 'true',
+    then: (schema) => schema.required('სავალდებულოა'),
+  }),
+  i_am_waiting: yup.string().when('had_vaccine', {
+    is: 'false',
+    then: (schema) => schema.required('სავალდებულოა'),
+  }),
 });

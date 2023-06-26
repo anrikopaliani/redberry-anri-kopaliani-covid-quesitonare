@@ -23,7 +23,7 @@ const useCovidForm = () => {
   const getStoredValues = useStoredValues('covidForm', {
     had_covid: '',
     had_antibody_test: '',
-    had_covid_date: '',
+    covid_sickness_date: '',
     test_date: '',
     number: '',
   });
@@ -44,7 +44,10 @@ const useCovidForm = () => {
   const had_antibody_test =
     useWatch({ control, name: 'had_antibody_test' }) || null;
 
-  const had_covid_date = useWatch({ control, name: 'had_covid_date' });
+  const covid_sickness_date = useWatch({
+    control,
+    name: 'covid_sickness_date',
+  });
   const test_date = useWatch({ control, name: 'test_date' });
   const number = useWatch({ control, name: 'number' });
 
@@ -62,8 +65,8 @@ const useCovidForm = () => {
 
   usePersistData(
     'covidForm',
-    { had_covid, had_antibody_test, had_covid_date, test_date, number },
-    [had_covid, had_antibody_test, had_covid_date, test_date, number]
+    { had_covid, had_antibody_test, covid_sickness_date, test_date, number },
+    [had_covid, had_antibody_test, covid_sickness_date, test_date, number]
   );
 
   return {

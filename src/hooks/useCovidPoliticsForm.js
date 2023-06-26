@@ -12,8 +12,8 @@ import { useNavigate } from 'react-router-dom';
 const RADIO_OPTIONS = [
   { label: 'კვირაში ორჯერ', value: 'twice_a_week' },
   { label: 'კვირაში ერთხელ', value: 'once_a_week' },
-  { label: 'ორ კვირაში ერთხელ', value: 'once_every_two_weeks' },
-  { label: 'თვეში ერთხელ', value: 'once_a_month' },
+  { label: 'ორ კვირაში ერთხელ', value: 'once_in_a_two_weeks' },
+  { label: 'თვეში ერთხელ', value: 'once_in_a_month' },
 ];
 
 const RADIO_OPTIONS_2 = [
@@ -35,7 +35,6 @@ const useCovidPoliticsForm = () => {
     tell_us_your_opinion_about_us: '',
   });
   const navigate = useNavigate();
-
 
   const form = useForm({
     resolver,

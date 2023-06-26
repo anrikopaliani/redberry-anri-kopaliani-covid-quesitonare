@@ -52,8 +52,10 @@ const CovidForm = () => {
               მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*
             </p>
             <div className='ml-5'>
-              <Input name='had_covid_date' placeholder='დდ/თთ/წწ' />
-              <p className='text-error'>{errors.had_covid_date?.message}</p>
+              <Input name='covid_sickness_date' placeholder='დდ/თთ/წწ' />
+              <p className='text-error'>
+                {errors.covid_sickness_date?.message}
+              </p>
             </div>
           </div>
         )}
