@@ -20,7 +20,7 @@ const useCovidForm = () => {
   const resolver = yupResolver(CovidFormValidation);
   const navigate = useNavigate();
 
-  const getStoredValues = useStoredValues('covidForm', {
+  const getStoredValues = useStoredValues({
     had_covid: '',
     had_antibody_test: '',
     covid_sickness_date: '',
@@ -66,7 +66,6 @@ const useCovidForm = () => {
   };
 
   usePersistData(
-    'covidForm',
     { had_covid, had_antibody_test, covid_sickness_date, test_date, number },
     [had_covid, had_antibody_test, covid_sickness_date, test_date, number]
   );

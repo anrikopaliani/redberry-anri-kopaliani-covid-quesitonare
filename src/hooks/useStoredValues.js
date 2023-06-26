@@ -1,5 +1,5 @@
-const userStoredValues = (key, defaultValues) => {
-  let data = localStorage.getItem(key);
+const userStoredValues = (defaultValues) => {
+  let data = localStorage.getItem('formData');
   if (data) {
     data = JSON.parse(data);
 

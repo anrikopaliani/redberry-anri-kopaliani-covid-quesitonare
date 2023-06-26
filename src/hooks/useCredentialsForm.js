@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const useCredentialsForm = () => {
   const resolver = useYupValidationResolver(UserCredentialsFormValidation);
-  const getStoredValues = useStoredValues('credentialsForm', {
+  const getStoredValues = useStoredValues({
     first_name: '',
     last_name: '',
     email: '',
@@ -28,7 +28,7 @@ const useCredentialsForm = () => {
   const last_name = useWatch({ control, name: 'last_name' });
   const email = useWatch({ control, name: 'email' });
 
-  usePersistData('credentialsForm', { first_name, last_name, email }, [
+  usePersistData({ first_name, last_name, email }, [
     first_name,
     last_name,
     email,

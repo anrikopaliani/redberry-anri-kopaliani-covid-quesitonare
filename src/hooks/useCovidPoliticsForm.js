@@ -28,7 +28,7 @@ const useCovidPoliticsForm = () => {
   const { setNavigateThanksPage } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
-  const getStoredValues = useStoredValues('politicsForm', {
+  const getStoredValues = useStoredValues({
     non_formal_meetings: '',
     number_of_days_from_office: '',
     what_about_meetings_in_live: '',
@@ -70,7 +70,6 @@ const useCovidPoliticsForm = () => {
   });
 
   usePersistData(
-    'politicsForm',
     {
       non_formal_meetings,
       number_of_days_from_office,

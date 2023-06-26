@@ -44,7 +44,7 @@ const RADIO_OPTIONS_3 = [
 const useVaccinatedForm = () => {
   const resolver = useYupValidationResolver(VaccinatedFormValidation);
 
-  const getStoredValues = useStoredValues('vaccinatedForm', {
+  const getStoredValues = useStoredValues({
     had_vaccine: '',
     vaccination_stage: '',
     i_am_waiting: '',
@@ -82,11 +82,10 @@ const useVaccinatedForm = () => {
     navigate('/politics');
   };
 
-  usePersistData(
-    'vaccinatedForm',
-    { had_vaccine, vaccination_stage, i_am_waiting },
-    [had_vaccine, vaccination_stage]
-  );
+  usePersistData({ had_vaccine, vaccination_stage, i_am_waiting }, [
+    had_vaccine,
+    vaccination_stage,
+  ]);
 
   return {
     form,
