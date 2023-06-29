@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { FormContext } from '@/store';
 import { useNavigate } from 'react-router-dom';
 import { useForm, useWatch } from 'react-hook-form';
@@ -55,7 +55,21 @@ const useCovidForm = () => {
   const number = useWatch({ control, name: 'number' });
 
   const onSubmit = (data) => {
-    setFormData((prevState) => ({ ...prevState, ...data }));
+    let newData = { ...data };
+
+    if (newData.had_antibody_test === 'true') {
+      const { test_date, number, had_antibody_test } = newData;
+      delete newData.test_date;
+      delete newData.number;
+
+      newData = {
+        ...newData,
+        antibodies: { test_date, number },
+        had_antibody_test: JSON.parse(had_antibody_test),
+      };
+    }
+
+    setFormData((prevState) => ({ ...prevState, ...newData }));
     navigate('/vaccinated');
   };
 
