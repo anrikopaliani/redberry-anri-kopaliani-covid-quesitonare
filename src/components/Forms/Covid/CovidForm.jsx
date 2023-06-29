@@ -32,7 +32,7 @@ const CovidForm = () => {
             error={errors.had_antibody_test?.message}
           />
         )}
-        {had_antibody_test !== 'now' && JSON.parse(had_antibody_test) && (
+        {had_covid === 'yes' && JSON.parse(had_antibody_test) && (
           <div className='mt-12'>
             <p className='text-2xl font-bold'>
               თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და
@@ -46,7 +46,7 @@ const CovidForm = () => {
             </div>
           </div>
         )}
-        {JSON.parse(had_antibody_test) === false && (
+        {JSON.parse(had_antibody_test) === false && had_covid === 'yes' && (
           <div className='mt-12'>
             <p className='text-2xl font-bold'>
               მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*
