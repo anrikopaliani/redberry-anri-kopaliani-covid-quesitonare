@@ -83,7 +83,6 @@ const useVaccinatedForm = () => {
     setFormData((prevState) => ({
       ...prevState,
       ...data,
-      had_vaccine: JSON.parse(data.had_vaccine),
     }));
     navigate('/politics');
   };

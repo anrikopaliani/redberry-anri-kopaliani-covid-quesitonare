@@ -49,7 +49,12 @@ const useCovidPoliticsForm = () => {
 
   const onSubmit = (data) => {
     setNavigateThanksPage(true);
-    setFormData((prevState) => ({ ...prevState, ...data }));
+    setFormData((prevState) => ({
+      ...prevState,
+      ...data,
+      had_vaccine: JSON.parse(prevState.had_vaccine),
+      had_antibody_test: JSON.parse(prevState.had_antibody_test),
+    }));
     navigate('/thanks');
   };
 

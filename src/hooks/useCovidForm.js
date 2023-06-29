@@ -58,14 +58,13 @@ const useCovidForm = () => {
     let newData = { ...data };
 
     if (newData.had_antibody_test === 'true') {
-      const { test_date, number, had_antibody_test } = newData;
+      const { test_date, number } = newData;
       delete newData.test_date;
       delete newData.number;
 
       newData = {
         ...newData,
         antibodies: { test_date, number },
-        had_antibody_test: JSON.parse(had_antibody_test),
       };
     }
 
