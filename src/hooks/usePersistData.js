@@ -9,7 +9,7 @@ const usePersistData = (formData, dependencies) => {
       'formData',
       JSON.stringify({ ...storedValues, ...formData })
     );
-  }, [...dependencies, formData]);
+  }, [...dependencies, formData, storedValues]);
 };
 
 export default usePersistData;
