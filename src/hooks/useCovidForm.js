@@ -55,20 +55,7 @@ const useCovidForm = () => {
   const number = useWatch({ control, name: 'number' });
 
   const onSubmit = (data) => {
-    let newData = { ...data };
-
-    if (newData.had_antibody_test === 'true') {
-      const { test_date, number } = newData;
-      delete newData.test_date;
-      delete newData.number;
-
-      newData = {
-        ...newData,
-        antibodies: { test_date, number },
-      };
-    }
-
-    setFormData((prevState) => ({ ...prevState, ...newData }));
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/vaccinated');
   };
 

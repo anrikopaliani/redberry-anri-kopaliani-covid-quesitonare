@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { FormContext } from '@/store';
 import { CovidPoliticsFormValidation } from '@/schemas';
 import { useNavigate } from 'react-router-dom';
+import { sendRequest } from '@/helpers';
 
 const RADIO_OPTIONS = [
   { label: 'კვირაში ორჯერ', value: 'twice_a_week' },
@@ -25,7 +26,8 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
-  const { setNavigateThanksPage, setFormData } = useContext(FormContext);
+  const { setNavigateThanksPage, setFormData, formData } =
+    useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
   const getStoredValues = useStoredValues({
@@ -55,6 +57,7 @@ const useCovidPoliticsForm = () => {
       had_vaccine: JSON.parse(prevState.had_vaccine),
       had_antibody_test: JSON.parse(prevState.had_antibody_test),
     }));
+    sendRequest(formData);
     navigate('/thanks');
   };
 
