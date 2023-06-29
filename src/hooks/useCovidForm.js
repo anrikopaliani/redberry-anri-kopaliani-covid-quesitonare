@@ -9,7 +9,7 @@ import { CovidFormValidation } from '@/schemas';
 const RADIO_OPTIONS = [
   { label: 'კი', value: 'yes' },
   { label: 'არა', value: 'no' },
-  { label: 'ახლა მაქვს', value: 'now' },
+  { label: 'ახლა მაქვს', value: 'have_right_now' },
 ];
 
 const RADIO_OPTIONS_2 = [
@@ -53,15 +53,6 @@ const useCovidForm = () => {
   });
   const test_date = useWatch({ control, name: 'test_date' });
   const number = useWatch({ control, name: 'number' });
-
-  useEffect(() => {
-    if (had_covid === 'no' || had_covid === 'now') {
-      resetField('had_antibody_test');
-      resetField('covid_sickness_date');
-      resetField('test_date');
-      resetField('number');
-    }
-  }, [had_covid, resetField]);
 
   const onSubmit = (data) => {
     setFormData((prevState) => ({ ...prevState, ...data }));
