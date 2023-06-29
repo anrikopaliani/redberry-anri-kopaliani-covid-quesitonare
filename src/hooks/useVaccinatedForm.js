@@ -80,7 +80,11 @@ const useVaccinatedForm = () => {
   }, [had_vaccine, resetField]);
 
   const onSubmit = (data) => {
-    setFormData((prevState) => ({ ...prevState, ...data }));
+    setFormData((prevState) => ({
+      ...prevState,
+      ...data,
+      had_vaccine: JSON.parse(data.had_vaccine),
+    }));
     navigate('/politics');
   };
 
