@@ -26,8 +26,7 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
-  const { setNavigateThanksPage, setFormData, formData } =
-    useContext(FormContext);
+  const { setNavigateThanksPage, formData } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
   const getStoredValues = useStoredValues({
@@ -49,16 +48,13 @@ const useCovidPoliticsForm = () => {
     control,
   } = form;
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setNavigateThanksPage(true);
-    setFormData((prevState) => ({
-      ...prevState,
-      ...data,
-      had_vaccine: JSON.parse(prevState.had_vaccine),
-      had_antibody_test: JSON.parse(prevState.had_antibody_test),
-    }));
-    sendRequest(formData);
-    navigate('/thanks');
+    const response = await sendRequest({ ...formData, ...data });
+
+    if (response.status === 201) {
+      navigate('/thanks');
+    }
   };
 
   const non_formal_meetings = useWatch({
