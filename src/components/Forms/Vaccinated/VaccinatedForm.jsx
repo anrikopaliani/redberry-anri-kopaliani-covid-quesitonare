@@ -10,11 +10,13 @@ const VaccinatedForm = () => {
     onSubmit,
     errors,
     had_vaccine,
+    i_am_waiting,
     vaccination_stage,
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     RADIO_OPTIONS_3,
   } = useVaccinatedForm();
+
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -43,22 +45,22 @@ const VaccinatedForm = () => {
           />
         )}
 
-        {vaccination_stage ===
-          'first_dosage_and_not_registered_on_the_second' && (
-          <p className='ml-10 mt-10 text-xl'>
-            რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი <br />
-            <a
-              href='https://booking.moh.gov.ge/'
-              target='_blank'
-              rel='noreferrer'
-              className='text-link'
-            >
-              https://booking.moh.gov.ge/
-            </a>
-          </p>
-        )}
+        {had_vaccine === 'true' &&
+          vaccination_stage === 'first_dosage_and_not_registered_yet' && (
+            <p className='ml-10 mt-10 text-xl'>
+              რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი <br />
+              <a
+                href='https://booking.moh.gov.ge/'
+                target='_blank'
+                rel='noreferrer'
+                className='text-link'
+              >
+                https://booking.moh.gov.ge/
+              </a>
+            </p>
+          )}
 
-        {vaccination_stage === 'not_planned' && (
+        {had_vaccine === 'false' && i_am_waiting === 'not_planned' && (
           <p className='ml-10 mt-10 text-xl'>
             👉
             <a
@@ -72,23 +74,24 @@ const VaccinatedForm = () => {
           </p>
         )}
 
-        {vaccination_stage === 'had_covid_and_planning_to_vaccinate' && (
-          <div className='ml-10 mt-10 text-xl'>
-            <p>
-              ახალი პროტოკოლით კოვიდის გადატანიდან 1 <br /> თვის შემდეგ
-              შეგიძლიათ ვაქცინის გაკეთება.
-            </p>
-            <p className='pt-4'>👉 რეგისტრაციის ბმული</p>
-            <a
-              href='https://booking.moh.gov.ge/'
-              target='_blank'
-              rel='noreferrer'
-              className='text-link'
-            >
-              https://booking.moh.gov.ge/
-            </a>
-          </div>
-        )}
+        {had_vaccine === 'false' &&
+          i_am_waiting === 'had_covid_and_planning_to_be_vaccinated' && (
+            <div className='ml-10 mt-10 text-xl'>
+              <p>
+                ახალი პროტოკოლით კოვიდის გადატანიდან 1 <br /> თვის შემდეგ
+                შეგიძლიათ ვაქცინის გაკეთება.
+              </p>
+              <p className='pt-4'>👉 რეგისტრაციის ბმული</p>
+              <a
+                href='https://booking.moh.gov.ge/'
+                target='_blank'
+                rel='noreferrer'
+                className='text-link'
+              >
+                https://booking.moh.gov.ge/
+              </a>
+            </div>
+          )}
 
         <div className='w-32 flex justify-between absolute bottom-28 left-0 right-0 z-10 mx-auto'>
           <Link to='/covid'>

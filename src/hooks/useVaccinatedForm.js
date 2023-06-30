@@ -34,7 +34,7 @@ const RADIO_OPTIONS_3 = [
     label: 'დარეგისტრირებული ვარ და ველოდები რიცხვს',
     value: 'registered_and_waiting',
   },
-  { label: 'არ ვგეგმავ', value: 'not_planning' },
+  { label: 'არ ვგეგმავ', value: 'not_planned' },
   {
     label: 'გადატანილი მაქვს და ვგეგმავ აცრას',
     value: 'had_covid_and_planning_to_be_vaccinated',
@@ -102,6 +102,7 @@ const useVaccinatedForm = () => {
     RADIO_OPTIONS_3,
     had_vaccine,
     vaccination_stage,
+    i_am_waiting,
   };
 };
 
