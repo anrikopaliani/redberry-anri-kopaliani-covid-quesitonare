@@ -39,7 +39,7 @@ const CovidForm = () => {
               ანტისხეულების რაოდენობა*
             </p>
             <div className='ml-5'>
-              <Input name='test_date' placeholder='რიცხვი' />
+              <Input name='test_date' placeholder='რიცხვი' type='date' />
               <p className='text-error'>{errors.test_date?.message}</p>
               <Input placeholder='ანტისხეულების რაოდენობა' name='number' />
               <p className='text-error'>{errors.number?.message}</p>
