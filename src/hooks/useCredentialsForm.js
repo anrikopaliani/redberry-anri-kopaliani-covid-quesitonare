@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { FormContext } from '@/store';
 import { useForm, useWatch } from 'react-hook-form';
 import useYupValidationResolver from './useYupValidationResolver';
 import { UserCredentialsFormValidation } from '@/schemas';
@@ -6,12 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const useCredentialsForm = () => {
   const resolver = useYupValidationResolver(UserCredentialsFormValidation);
-
-  const getStoredValues = useStoredValues('credentialsForm', {
+  const getStoredValues = useStoredValues({
     first_name: '',
     last_name: '',
     email: '',
   });
+
+  const { setFormData } = useContext(FormContext);
 
   const form = useForm({
     mode: 'all',
@@ -29,15 +32,15 @@ const useCredentialsForm = () => {
   const last_name = useWatch({ control, name: 'last_name' });
   const email = useWatch({ control, name: 'email' });
 
-  usePersistData('credentialsForm', { first_name, last_name, email }, [
+  usePersistData({ first_name, last_name, email }, [
     first_name,
     last_name,
     email,
   ]);
 
-  return [form, handleSubmit, errors];
   const navigate = useNavigate();
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    setFormData((prevState) => ({ ...prevState, ...data }));
     navigate('/covid');
   };
 

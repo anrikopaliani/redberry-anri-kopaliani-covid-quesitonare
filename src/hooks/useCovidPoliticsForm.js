@@ -8,12 +8,13 @@ import { useContext } from 'react';
 import { FormContext } from '@/store';
 import { CovidPoliticsFormValidation } from '@/schemas';
 import { useNavigate } from 'react-router-dom';
+import { sendRequest } from '@/helpers';
 
 const RADIO_OPTIONS = [
   { label: 'კვირაში ორჯერ', value: 'twice_a_week' },
   { label: 'კვირაში ერთხელ', value: 'once_a_week' },
-  { label: 'ორ კვირაში ერთხელ', value: 'once_every_two_weeks' },
-  { label: 'თვეში ერთხელ', value: 'once_a_month' },
+  { label: 'ორ კვირაში ერთხელ', value: 'once_in_a_two_weeks' },
+  { label: 'თვეში ერთხელ', value: 'once_in_a_month' },
 ];
 
 const RADIO_OPTIONS_2 = [
@@ -25,17 +26,16 @@ const RADIO_OPTIONS_2 = [
 ];
 
 const useCovidPoliticsForm = () => {
-  const { setNavigateThanksPage } = useContext(FormContext);
+  const { setNavigateThanksPage, formData } = useContext(FormContext);
   const resolver = useYupValidationResolver(CovidPoliticsFormValidation);
 
-  const getStoredValues = useStoredValues('politicsForm', {
+  const getStoredValues = useStoredValues({
     non_formal_meetings: '',
     number_of_days_from_office: '',
     what_about_meetings_in_live: '',
     tell_us_your_opinion_about_us: '',
   });
   const navigate = useNavigate();
-
 
   const form = useForm({
     resolver,
@@ -48,9 +48,13 @@ const useCovidPoliticsForm = () => {
     control,
   } = form;
 
-  const onSubmit = () => {
+  const onSubmit = async (data) => {
     setNavigateThanksPage(true);
-    navigate('/thanks');
+    const response = await sendRequest({ ...formData, ...data });
+
+    if (response.status === 201) {
+      navigate('/thanks');
+    }
   };
 
   const non_formal_meetings = useWatch({
@@ -71,7 +75,6 @@ const useCovidPoliticsForm = () => {
   });
 
   usePersistData(
-    'politicsForm',
     {
       non_formal_meetings,
       number_of_days_from_office,
