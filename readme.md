@@ -26,7 +26,7 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 
 ## Getting Started
 
-1. First of all you need to clone E Space repository from github:
+1. First of all you need to clone Covid Questionaire repository from github:
 
 ```
     git clone https://github.com/RedberryInternship/anri-kopaliani-covid-quesitonare.git
