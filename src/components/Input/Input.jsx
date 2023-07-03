@@ -24,7 +24,7 @@ const Input = memo(function Input({
         placeholder={placeholder}
       />
       {errors && (
-        <p className='text-error pl-5 absolute top-24  text-center'>{errors}</p>
+        <span className='text-error absolute top-24 pl-5 w-622'>{errors}</span>
       )}
     </div>
   );

@@ -4,19 +4,22 @@ export const UserCredentialsFormValidation = yup.object({
   first_name: yup
     .string()
     .trim()
-    .required('სახელის მითითება აუცილებელია')
-    .min(3, 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან'),
+    .min(3, 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან')
+    .required('სახელის მითითება აუცილებელია'),
   last_name: yup
     .string()
     .trim()
-    .required('გვარის მითითება აუცილებელია')
-    .min(3, 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან'),
+    .min(3, 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან')
+    .required('გვარის მითითება აუცილებელია'),
   email: yup
     .string()
     .trim()
-    .required('მეილის მითითება აუცილებელია')
-    .email('უნდა იყოს მეილის ფორმატი')
-    .matches(/@redberry.ge$/gm, 'უნდა იყოს რედბერის მეილი'),
+    .matches(
+      /@redberry.ge$/gm,
+      'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)'
+    )
+    .email('თქვენ მიერ შეყვანილი მეილი არასწორია')
+    .required('მეილის მითითება აუცილებელია'),
 });
 
 export const CovidFormValidation = yup.object({
