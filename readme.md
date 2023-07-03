@@ -27,11 +27,11 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 
 ## Tech Stack
 
-- <p><img src="https://ionicframework.com/docs/icons/logo-react-icon.png" width="35" height="35" />[React @18.2.0](https://react.dev/) - front-end framework</p>
-- <p><img src="https://cdn-images-1.medium.com/max/710/0*Z-jwqyt2k8NbHaQe.png" width="35" height="35" />[Framer motion @10.12.17](https://www.framer.com/motion/) - Animation Library</p>
-- <p><img src="https://cdn-images-1.medium.com/max/710/0*Z-jwqyt2k8NbHaQe.png" width="35" height="35" />[React Hook Form @7.44.3](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation.</p>
-- <p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s---i0cDVfO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/okch3o6nltafe4pdyfdg.png" width="35" height="35"/>[Yup @1.2.0](https://github.com/jquense/yup) - schema builder for runtime value parsing and validation</p>
-- <p><img src="https://reactrouter.com/twitterimage.jpg" width="35" height="35"/>[React Router @6.12.0](https://reactrouter.com/en/main) - </p>
+- <p><img src="https://ionicframework.com/docs/icons/logo-react-icon.png" width="35" height="35" /><a href="https://react.dev/">React @18.2.0</a> - front-end framework</p>
+- <p><img src="https://cdn-images-1.medium.com/max/710/0*Z-jwqyt2k8NbHaQe.png" width="35" height="35" /><a href="https://www.framer.com/motion/">Framer Motion @10.12.17</a> - Animation Library</p>
+- <p><img src="https://react-hook-form.com/images/logo/react-hook-form-logo-only.png" width="35" height="35" /><a href="https://react-hook-form.com/">React Hook Form @7.44.3</a> - Performant, flexible and extensible forms with easy-to-use validation.</p>
+- <p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s---i0cDVfO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/okch3o6nltafe4pdyfdg.png" width="35" height="35"/><a href="https://github.com/jquense/yup">Yup @1.2.0</a> - schema builder for runtime value parsing and validation</p>
+- <p><img src="https://reactrouter.com/twitterimage.jpg" width="35" height="35"/><a href="https://reactrouter.com/en/main" >React Router @6.12.0</a> - Client Side Routing</p>
 
 ## Getting Started
 
