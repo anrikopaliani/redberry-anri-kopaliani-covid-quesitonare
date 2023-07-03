@@ -58,3 +58,7 @@ textarea {
   resize: none;
   white-space: pre-wrap;
 }
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
