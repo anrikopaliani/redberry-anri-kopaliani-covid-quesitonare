@@ -8,6 +8,8 @@ const Input = memo(function Input({
   placeholder,
   name,
   errors,
+  min,
+  max,
 }) {
   const { register } = useFormContext();
   return (
@@ -20,6 +22,8 @@ const Input = memo(function Input({
         type={type}
         {...register(name)}
         id={name}
+        min={min}
+        max={max}
         name={name}
         placeholder={placeholder}
       />
@@ -33,6 +37,8 @@ const Input = memo(function Input({
 Input.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
+  min: PropTypes.string,
+  max: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   errors: PropTypes.string,
