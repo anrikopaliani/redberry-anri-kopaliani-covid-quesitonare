@@ -16,7 +16,7 @@ const Input = memo(function Input({
         {label}
       </label>
       <input
-        className='mt-2 w-full h-50 bg-transparent  border-0.8 border-black px-5 placeholder-black'
+        className='mt-2 w-full h-50 bg-transparent  border-0.8 border-black px-5'
         type={type}
         {...register(name)}
         id={name}
