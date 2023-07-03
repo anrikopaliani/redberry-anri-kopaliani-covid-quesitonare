@@ -7,6 +7,7 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 ## Table of Contents
 
 - [Prerequisites](#Prerequisites)
+- [Resources](#resources)
 - [Tech Stack](#tech-stack)
 - [Getting Start](#getting-started)
 - [Project Structure](#project-structure)
@@ -15,6 +16,14 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 
 - <p><img src="https://w7.pngwing.com/pngs/452/24/png-transparent-js-logo-node-logos-and-brands-icon.png" width="35" height="35" />Node JS</p>
 - <p><img src="https://cdn.freebiesupply.com/logos/thumbs/2x/npm-logo.png"  width="35" height="35"/>NPM </p>
+
+## Resources
+
+- <a href="https://redberry.gitbook.io/assignment-i-covid-questionaire/">Documentation</a>
+- <a href="https://www.figma.com/file/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98?node-id=37%3A3">Application Design [Figma]</a>
+- <a href="https://www.figma.com/proto/56t2BI25FcD0LAIjR4GVkQ/%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%E1%83%A0%E1%83%98?node-id=37-3&starting-point-node-id=1%3A2&scaling=contain">Application Design Prototype</a>
+- <a href="https://covid19.devtest.ge/api-specs">Api Specificiation</a>
+- <a href="https://fonts.ge/ka/font/13/BPG-Arial">Font [BGP Arial]</a>
 
 ## Tech Stack
 
