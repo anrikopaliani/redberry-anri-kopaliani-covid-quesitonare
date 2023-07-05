@@ -13,11 +13,8 @@ const CovidForm = () => {
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     onSubmit,
+    date,
   } = useCovidForm();
-
-  let curr = new Date();
-  curr.setDate(curr.getDate());
-  let date = curr.toISOString().substring(0, 10);
 
   return (
     <FormProvider {...form}>
