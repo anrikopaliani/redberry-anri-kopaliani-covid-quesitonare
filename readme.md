@@ -14,8 +14,8 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 
 ## Prerequisites
 
-- <p><img src="https://w7.pngwing.com/pngs/452/24/png-transparent-js-logo-node-logos-and-brands-icon.png" width="35" height="35" />Node JS</p>
-- <p><img src="https://cdn.freebiesupply.com/logos/thumbs/2x/npm-logo.png"  width="35" height="35"/>NPM </p>
+- <p><img src="./readme/assets/node.png" width="35" height="35" />Node JS</p>
+- <p><img src="./readme/assets/npm-logo.png"  width="35" height="35"/>NPM </p>
 
 ## Resources
 
@@ -27,11 +27,11 @@ The Covid Questionnaire is an application that new employees need to fill in to 
 
 ## Tech Stack
 
-- <p><img src="https://ionicframework.com/docs/icons/logo-react-icon.png" width="35" height="35" /><a href="https://react.dev/">React @18.2.0</a> - front-end framework</p>
-- <p><img src="https://cdn-images-1.medium.com/max/710/0*Z-jwqyt2k8NbHaQe.png" width="35" height="35" /><a href="https://www.framer.com/motion/">Framer Motion @10.12.17</a> - Animation Library</p>
-- <p><img src="https://react-hook-form.com/images/logo/react-hook-form-logo-only.png" width="35" height="35" /><a href="https://react-hook-form.com/">React Hook Form @7.44.3</a> - Performant, flexible and extensible forms with easy-to-use validation.</p>
-- <p><img src="https://res.cloudinary.com/practicaldev/image/fetch/s---i0cDVfO--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/okch3o6nltafe4pdyfdg.png" width="35" height="35"/><a href="https://github.com/jquense/yup">Yup @1.2.0</a> - schema builder for runtime value parsing and validation</p>
-- <p><img src="https://reactrouter.com/twitterimage.jpg" width="35" height="35"/><a href="https://reactrouter.com/en/main" >React Router @6.12.0</a> - Client Side Routing</p>
+- <p><img src="./readme/assets/react-icon.png" width="35" height="35" /><a href="https://react.dev/">React @18.2.0</a> - front-end framework</p>
+- <p><img src="./readme/assets/framer.png" width="35" height="35" /><a href="https://www.framer.com/motion/">Framer Motion @10.12.17</a> - Animation Library</p>
+- <p><img src="./readme/assets/react-hook-form-logo.png" width="35" height="35" /><a href="https://react-hook-form.com/">React Hook Form @7.44.3</a> - Performant, flexible and extensible forms with easy-to-use validation.</p>
+- <p><img src="./readme/assets/yup.webp" width="35" height="35"/><a href="https://github.com/jquense/yup">Yup @1.2.0</a> - schema builder for runtime value parsing and validation</p>
+- <p><img src="./readme/assets/router.jpg" width="35" height="35"/><a href="https://reactrouter.com/en/main" >React Router @6.12.0</a> - Client Side Routing</p>
 
 ## Getting Started
 
