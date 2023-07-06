@@ -16,6 +16,7 @@ export default {
         703: '43.938rem',
         949: '59.313rem',
         800: '50rem',
+        660: '41.25rem',
       },
       colors: {
         theme: '#eaeaea',
