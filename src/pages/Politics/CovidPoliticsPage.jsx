@@ -12,9 +12,11 @@ const CovidPoliticsPage = () => {
   return (
     <>
       <Wrapper hidden={false}>
-        <Header pageNumber={4} />
+        <div className='bg-theme z-20 fixed left-0 w-full px-48'>
+          <Header pageNumber={4} />
+        </div>
         <div className='flex justify-between'>
-          <div className='w-606 mt-11'>
+          <div className='w-606 mt-48'>
             <p className='text-2xl'>
               რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
               რომელსაც ჩვენი თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა
@@ -28,7 +30,7 @@ const CovidPoliticsPage = () => {
             </p>
             <CovidPoliticsForm />
           </div>
-          <div className='relative'>
+          <div className='relative mt-48'>
             <Heart />
             <img
               className='w-703 h-703 mt-16'

@@ -13,6 +13,7 @@ const CovidForm = () => {
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
     onSubmit,
+    date,
   } = useCovidForm();
 
   return (
@@ -39,7 +40,13 @@ const CovidForm = () => {
               ანტისხეულების რაოდენობა*
             </p>
             <div className='ml-5'>
-              <Input name='test_date' placeholder='რიცხვი' type='date' />
+              <Input
+                name='test_date'
+                placeholder='რიცხვი'
+                type='date'
+                min='2017-01-01'
+                max={date}
+              />
               <p className='text-error'>{errors.test_date?.message}</p>
               <Input placeholder='ანტისხეულების რაოდენობა' name='number' />
               <p className='text-error'>{errors.number?.message}</p>
@@ -52,7 +59,13 @@ const CovidForm = () => {
               მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*
             </p>
             <div className='ml-5'>
-              <Input name='covid_sickness_date' placeholder='დდ/თთ/წწ' />
+              <Input
+                type='date'
+                min='2017-01-01'
+                max={date}
+                name='covid_sickness_date'
+                placeholder='დდ/თთ/წწ'
+              />
               <p className='text-error'>
                 {errors.covid_sickness_date?.message}
               </p>

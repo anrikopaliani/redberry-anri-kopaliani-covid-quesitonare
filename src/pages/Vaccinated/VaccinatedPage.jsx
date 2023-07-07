@@ -16,13 +16,17 @@ const VaccinatedPage = () => {
             initial={{
               position: 'absolute',
               opacity: 0,
-              left: 30,
+              left: 10,
               top: -20,
             }}
             animate={{ opacity: 0.7, transition: { duration: 0.7 } }}
             exit={{ top: 90, left: 100, opacity: 0 }}
           />
-          <img src={DoctorPicture} alt='sick person' />
+          <img
+            className='h-660 w-full'
+            src={DoctorPicture}
+            alt='doctor picture'
+          />
         </div>
       </div>
     </Wrapper>

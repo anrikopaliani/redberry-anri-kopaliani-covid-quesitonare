@@ -26,8 +26,8 @@ const Credentials = () => {
               transition: { delay: 0.3 },
             }}
             exit={{
-              top: 265,
-              left: 100,
+              top: 230,
+              left: 35,
               width: 229,
               height: 229,
               background: '#DD3939',

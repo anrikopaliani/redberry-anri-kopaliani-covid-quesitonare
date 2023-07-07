@@ -8,6 +8,8 @@ const Input = memo(function Input({
   placeholder,
   name,
   errors,
+  min,
+  max,
 }) {
   const { register } = useFormContext();
   return (
@@ -16,15 +18,17 @@ const Input = memo(function Input({
         {label}
       </label>
       <input
-        className='mt-2 w-full h-50 bg-transparent  border-0.8 border-black px-5 placeholder-black'
+        className='mt-2 w-full h-50 bg-transparent  border-0.8 border-black px-5'
         type={type}
         {...register(name)}
         id={name}
+        min={min}
+        max={max}
         name={name}
         placeholder={placeholder}
       />
       {errors && (
-        <p className='text-error pl-5 absolute top-24  text-center'>{errors}</p>
+        <span className='text-error absolute top-24 pl-5 w-622'>{errors}</span>
       )}
     </div>
   );
@@ -33,6 +37,8 @@ const Input = memo(function Input({
 Input.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
+  min: PropTypes.string,
+  max: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   errors: PropTypes.string,

@@ -19,6 +19,11 @@ body {
   overflow-x: hidden;
 }
 
+input::placeholder {
+  color: #232323;
+  opacity: 0.8;
+}
+
 input[type='radio'] {
   -webkit-appearance: none;
   appearance: none;
@@ -52,4 +57,8 @@ input[type='radio']:checked::before {
 textarea {
   resize: none;
   white-space: pre-wrap;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
 }

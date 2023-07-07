@@ -64,6 +64,10 @@ const useCovidForm = () => {
     [had_covid, had_antibody_test, covid_sickness_date, test_date, number]
   );
 
+  let curr = new Date();
+  curr.setDate(curr.getDate());
+  let date = curr.toISOString().substring(0, 10);
+
   return {
     form,
     handleSubmit,
@@ -73,6 +77,7 @@ const useCovidForm = () => {
     had_antibody_test,
     RADIO_OPTIONS,
     RADIO_OPTIONS_2,
+    date,
     onSubmit,
   };
 };

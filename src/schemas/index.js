@@ -4,19 +4,22 @@ export const UserCredentialsFormValidation = yup.object({
   first_name: yup
     .string()
     .trim()
-    .required('სახელის მითითება აუცილებელია')
-    .min(3, 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან'),
+    .min(3, 'სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან')
+    .required('სახელის მითითება აუცილებელია'),
   last_name: yup
     .string()
     .trim()
-    .required('გვარის მითითება აუცილებელია')
-    .min(3, 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან'),
+    .min(3, 'გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან')
+    .required('გვარის მითითება აუცილებელია'),
   email: yup
     .string()
     .trim()
-    .required('მეილის მითითება აუცილებელია')
-    .email('უნდა იყოს მეილის ფორმატი')
-    .matches(/@redberry.ge$/gm, 'უნდა იყოს რედბერის მეილი'),
+    .matches(
+      /@redberry.ge$/gm,
+      'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)'
+    )
+    .email('თქვენ მიერ შეყვანილი მეილი არასწორია')
+    .required('მეილის მითითება აუცილებელია'),
 });
 
 export const CovidFormValidation = yup.object({
@@ -42,18 +45,15 @@ export const CovidFormValidation = yup.object({
       schema.matches(/^\d+$/, 'მიუთითეთ რიცხვი').required('სავალდებულოა'),
     otherwise: (schema) => schema.notRequired(),
   }),
-  covid_sickness_date: yup.string().when(['had_antibody_test', 'had_covid'], {
-    is: (had_antibody_test, had_covid) =>
-      had_antibody_test === 'false' && had_covid === 'yes',
-    then: (schema) =>
-      schema
-        .matches(
-          /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/,
-          'მიუთითეთ თარიღი სწორ ფორმატში (დღე/თვე/წელი)'
-        )
-        .required('სავალდებულოა'),
-    otherwise: (schema) => schema.notRequired(),
-  }),
+  covid_sickness_date: yup
+    .date()
+    .typeError('სავალდებულოა')
+    .when(['had_antibody_test', 'had_covid'], {
+      is: (had_antibody_test, had_covid) =>
+        had_antibody_test === 'false' && had_covid === 'yes',
+      then: (schema) => schema.required('სავალდებულოა'),
+      otherwise: (schema) => schema.notRequired(),
+    }),
 });
 
 export const CovidPoliticsFormValidation = yup.object({
