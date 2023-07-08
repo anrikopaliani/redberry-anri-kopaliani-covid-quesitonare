@@ -30,7 +30,7 @@ export const CovidFormValidation = yup.object({
     otherwise: (schema) => schema.notRequired(),
   }),
   test_date: yup
-    .date()
+    .string()
     .typeError('მიუთითე რიცხვი')
     .when(['had_antibody_test', 'had_covid'], {
       is: (had_antibody_test, had_covid) =>
@@ -46,7 +46,7 @@ export const CovidFormValidation = yup.object({
     otherwise: (schema) => schema.notRequired(),
   }),
   covid_sickness_date: yup
-    .date()
+    .string()
     .typeError('სავალდებულოა')
     .when(['had_antibody_test', 'had_covid'], {
       is: (had_antibody_test, had_covid) =>
