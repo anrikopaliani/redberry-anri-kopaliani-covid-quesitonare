@@ -60,7 +60,7 @@ const VaccinatedForm = () => {
             </p>
           )}
 
-        {had_vaccine === 'false' && i_am_waiting === 'not_planned' && (
+        {had_vaccine === 'false' && i_am_waiting === 'not_planning' && (
           <p className='ml-10 mt-10 text-xl'>
             👉
             <a
