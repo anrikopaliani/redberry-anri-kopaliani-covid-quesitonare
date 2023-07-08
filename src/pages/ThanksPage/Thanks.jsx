@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { Star } from '@/components';
+import { useThanks } from '@/hooks';
 
 const Thanks = () => {
+  useThanks();
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className='bg-black w-screen h-screen flex justify-center items-center '
+      className='bg-black w-screen h-screen flex justify-center items-center z-30'
     >
       <motion.div
         initial={{ opacity: 0 }}

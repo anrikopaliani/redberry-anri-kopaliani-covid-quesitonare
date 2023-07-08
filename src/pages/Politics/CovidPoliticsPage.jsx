@@ -12,7 +12,7 @@ const CovidPoliticsPage = () => {
   return (
     <>
       <Wrapper hidden={false}>
-        <div className='bg-theme z-20 fixed left-0 w-full px-48'>
+        <div className='bg-theme z-10 fixed left-0 w-full px-48'>
           <Header pageNumber={4} />
         </div>
         <div className='flex justify-between'>
