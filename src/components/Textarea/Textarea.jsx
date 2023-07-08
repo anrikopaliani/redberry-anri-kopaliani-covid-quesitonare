@@ -8,7 +8,7 @@ const Textarea = memo(function Textarea({ name }) {
     <textarea
       {...register(name)}
       name={name}
-      className='w-622 mt-5  bg-theme border-0.8 px-2 border-black'
+      className='w-622 mt-5  bg-transparent border-0.8 px-2 border-black'
       id={name}
       cols='30'
       rows='10'
