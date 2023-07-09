@@ -54,7 +54,6 @@ const useCovidPoliticsForm = () => {
 
     if (response.status === 201) {
       navigate('/thanks');
-      window.localStorage.removeItem('formData');
     }
   };
 

@@ -27,7 +27,7 @@ input::placeholder {
 input[type='radio'] {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #eaeaea;
+  background-color: transparent;
   margin: 0;
   font: inherit;
   color: currentColor;

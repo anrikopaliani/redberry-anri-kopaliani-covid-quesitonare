@@ -7,14 +7,18 @@ import {
 } from '@/components';
 import { Bike } from 'public';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const CovidPoliticsPage = () => {
   return (
     <>
       <Wrapper hidden={false}>
-        <div className='bg-theme z-20 fixed left-0 w-full px-48'>
+        <motion.div
+          exit={{ opacity: 0 }}
+          className='bg-theme z-10 fixed left-0 w-full px-48'
+        >
           <Header pageNumber={4} />
-        </div>
+        </motion.div>
         <div className='flex justify-between'>
           <div className='w-606 mt-48'>
             <p className='text-2xl'>

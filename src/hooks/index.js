@@ -6,3 +6,4 @@ export { default as useVaccinatedForm } from './useVaccinatedForm';
 export { default as useStoredValues } from './useStoredValues';
 export { default as usePersistData } from './usePersistData';
 export { default as useNavigateThanksReset } from './useNavigateThanksReset';
+export { default as useThanks } from './useThanks';

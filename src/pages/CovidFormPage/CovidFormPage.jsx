@@ -11,17 +11,17 @@ const CovidFormPage = () => {
         <CovidForm />
         <div className='relative'>
           <motion.div
-            initial={{ opacity: 0, top: 230, left: 100 }}
+            initial={{ opacity: 0, top: 200, left: 70 }}
             animate={{
               opacity: 0.7,
               width: 229,
               height: 229,
               background: '#DD3939',
             }}
-            exit={{ left: 150, top: 130, opacity: 0 }}
+            exit={{ left: 95, top: 130, opacity: 0 }}
             className='absolute rounded-full'
           ></motion.div>
-          <img src={SickPerson} className='w-949 h-800' alt='sick person' />
+          <img src={SickPerson} className='h-703' alt='sick person' />
         </div>
       </div>
     </Wrapper>
