@@ -49,10 +49,10 @@ const useCovidPoliticsForm = () => {
   } = form;
 
   const onSubmit = async (data) => {
-    setNavigateThanksPage(true);
     const response = await sendRequest({ ...formData, ...data });
 
     if (response.status === 201) {
+      setNavigateThanksPage(true);
       navigate('/thanks');
     }
   };
