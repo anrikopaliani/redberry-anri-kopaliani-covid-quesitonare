@@ -7,6 +7,13 @@ const formatData = (data) => {
     newData.number_of_days_from_office
   );
 
+  if (newData.had_covid === 'no' || newData.had_covid === 'have_right_now') {
+    delete newData.had_antibody_test;
+    delete newData.test_date;
+    delete newData.number;
+    delete newData.covid_sickness_date;
+  }
+
   if (newData.had_antibody_test && newData.test_date && newData.number) {
     const { test_date, number } = newData;
     delete newData.test_date;
@@ -19,10 +26,15 @@ const formatData = (data) => {
     };
   }
 
-  if (!newData.had_antibody_test) {
+  if (newData.had_antibody_test === false) {
     delete newData.test_date;
     delete newData.number;
     delete newData.antibodies;
+
+    newData = {
+      ...newData,
+      covid_sickness_date: new Date(newData.covid_sickness_date).toISOString(),
+    };
   }
 
   if (newData.had_vaccine) {
